@@ -1,0 +1,39 @@
+server:
+  port: 8002
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.king.springcloud.entities
+  mapper-locations: mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: springcloud-provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    username: root
+    password: 250250qwe
+    dbcp2:
+      min-idle: 5               #最小维持的连接数
+      initial-size: 5           #初始化连接数
+      max-total: 5              #最大连接数
+      max-wait-millis: 200      #等待获取连接的最大时间
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-dept8003  #修改标志微服务的标志
+    prefer-ip-address: true     #让eureka server 左下角显示IP
+
+
+
+info:                # 点击eureka server 中注册节点的标志时，跳转网页显示的详细信息
+  app.name: dept-service1
+  company.name: self
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

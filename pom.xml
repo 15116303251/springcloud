@@ -14,6 +14,8 @@
         <module>springcloud-eureka</module>
         <module>springcloud-eureka1</module>
         <module>springcloud-eureka2</module>
+        <module>springcloud-provider1</module>
+        <module>springcloud-provider2</module>
     </modules>
     <packaging>pom</packaging>
 

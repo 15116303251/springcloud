@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.king.springcloud.dao.DeptMapper">
+    <resultMap id="deptMap" type="com.king.springcloud.entities.Dept">
+        <id column="deptno" property="deptNo" javaType="java.lang.Long" jdbcType="BIGINT"></id>
+        <result column="dname" property="deptName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+        <result column="db_source" property="dbSource" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="findById" resultMap="deptMap" parameterType="Long">
+        select deptno, dname, db_source
+        from dept
+        where deptno = #{deptno}
+    </select>
+
+    <select id="findAll" resultMap="deptMap">
+        select deptno, dname, db_source
+        from dept
+    </select>
+
+    <insert id="addDept" parameterType="Dept">
+        insert into cloudDB01.dept(
+        <if test="deptName!=null">
+            dname
+        </if>
+        <if test="dbSource!=null">
+            ,db_source
+        </if>
+        )
+        values (
+        <if test="deptName!=null">
+            dname=#{deptName}
+        </if>
+        <if test="dbSource!=null">
+            ,db_source=#{dbSource}
+        </if>
+        )
+    </insert>
+
+</mapper>

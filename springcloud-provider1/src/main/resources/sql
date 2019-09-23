@@ -1,0 +1,14 @@
+drop database if exists cloudDB03;
+create database cloudDB03 character set UTF8;
+
+create table cloudDB03.dept(
+    deptno bigint not null primary key auto_increment,
+    dname varchar(60),
+    db_Source varchar(60)
+);
+
+insert into cloudDB03.dept(dname,db_source) values ('开发部3',DATABASE());
+insert into cloudDB03.dept(dname,db_source) values ('人事部3',DATABASE());
+insert into cloudDB03.dept(dname,db_source) values ('财务部3',DATABASE());
+insert into cloudDB03.dept(dname,db_source) values ('市场部3',DATABASE());
+insert into cloudDB03.dept(dname,db_source) values ('运维部3',DATABASE());
