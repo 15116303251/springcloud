@@ -16,6 +16,7 @@
         <module>springcloud-eureka2</module>
         <module>springcloud-provider1</module>
         <module>springcloud-provider2</module>
+        <module>springcloud-feign</module>
     </modules>
     <packaging>pom</packaging>
 
