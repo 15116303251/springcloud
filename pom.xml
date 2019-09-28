@@ -18,6 +18,8 @@
         <module>springcloud-provider2</module>
         <module>springcloud-feign</module>
         <module>springcloud-hystrix</module>
+        <module>springcloud-hystrix-dashboard</module>
+        <module>springcloud-zuul</module>
     </modules>
     <packaging>pom</packaging>
 

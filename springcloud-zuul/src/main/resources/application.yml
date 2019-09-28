@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+
+spring:
+  application:
+    name: springcloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: gateway-9527 #修改标志微服务的标志
+    prefer-ip-address: true     #让eureka server 左下角显示IP
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider #原服务名
+    mydept.path: /mydept/**  #要替代的虚拟服务名
+  ignored-services: springcloud-provider # 禁止以原服务名进行访问
+  prefix: /springcloud   #设置访问的前缀
+
+info: # 点击eureka server 中注册节点的标志时，跳转网页显示的详细信息
+  app.name: dept-service1
+  company.name: self
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
