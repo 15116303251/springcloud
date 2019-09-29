@@ -20,6 +20,7 @@
         <module>springcloud-hystrix</module>
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-zuul</module>
+        <module>springcloudconfig</module>
     </modules>
     <packaging>pom</packaging>
 
